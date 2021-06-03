@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Bee - Ian Destura</title>
+    <link rel="stylesheet" href="../assets/SpinThatShit-master/examples/style.css">
+    <link rel="stylesheet" href="../assets/dist/style.css">
+    <link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container" style="flex-direction: column;flex-flow: column; height: unset;padding: 2rem 0;">
+       
+    </div>
+</body>
+<script src="../assets/jquery/dist/jquery.min.js"></script>
+<!-- <script src="../assets/dist/quiz.js"></script> -->
+<script>
+    $(document).ready(function () {
+        var remove = window.location.search.replace('?', '');
+        var ar = remove.split('&');
+        var score = ar[0].split('=');
+        var question = ar[1].split('=');
+        var answer = ar[2].split('=');
+
+        score = score[1];
+        question = question[1];
+        answer = answer[1];
+
+        var q = question.replace(/%20/g, " ");
+        var a = answer.replace(/%3C/g, "<");
+        a = a.replace(/%3E/g, ">");
+        a = a.replace(/%20/g, " ");
+
+        var split1 = q.split("-/-");
+        var split2 = a.split("-/-");
+
+        console.log(score);
+        console.log(split1);
+        console.log(split2);
+
+        var html = '<div class="card " style="box-shadow: 0px 0px 10px -4px rgb(0 0 0 / 50%); margin: 1rem 0;">'
+            +'<div class="question" style="margin-top: unset;margin-bottom: .5rem; justify-content: center; flex-direction: column">'
+                +'<h2 class="question-text" style="font-weight:100;text-align: center">Quiz Result</h2>'
+                +'<h1 style="text-align: center; font-size: 60px; font-weight: bold; padding-top: 1.5rem">'+score+'%</h1>'
+            +'</div>'
+        +'</div>';
+        var split3;
+        var answer;
+        for (let index = 0; index < split1.length; index++) {
+
+            if (split1[index] != "") {
+                split3 = split2[index].split("+");
+                console.log(split3[0]);
+
+                if (split3[1] == "t") {
+                    answer = '<div class="choices-a" style="pointer-events: none;background-color: #16da40">'
+                        + '<h2 class="answer answer-' + index + ' " style="margin-left: unset"></h2>'
+                        + '</div>';
+                } else {
+                    answer = '<div class="choices-a" style="pointer-events: none;background-color: #f75454">'
+                        + '<h2 class="answer answer-' + index + ' " style="margin-left: unset"></h2>'
+                        + '</div>';
+                }
+
+                html += '<div class="card " style="box-shadow: 0px 0px 10px -4px rgb(0 0 0 / 50%); margin: 1rem 0;">'
+                    + '<div class="question" style="margin-top: unset;margin-bottom: .5rem">'
+                    + '<h2 class="question-text" style="font-weight:100">' + (index + 1) + ". " + split1[index] + '</h2>'
+                    + '</div>'
+                    + '<div class="choices">'
+                    + answer
+                    + '</div>'
+                    + '</div>';
+
+            }
+
+        }
+
+        html += '<div class="box"><a class="back-btn" style="width: 100%; margin-top:1.5rem ">Back</a></div>';
+
+        $('.container').html(html);
+
+        for (let index = 0; index < split1.length; index++) {
+
+            if (split1[index] != "") {
+                split3 = split2[index].split("+");
+                $('.answer-' + index).text(split3[0]);
+            }
+
+        }
+
+        $('.back-btn').on('click', function(){
+            window.history.back();
+        });
+
+    });
+</script>
+
+</html>
