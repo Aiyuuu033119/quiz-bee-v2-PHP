@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Bee - Ian Destura</title>
+    <link rel="stylesheet" href="../assets/SpinThatShit-master/examples/style.css">
+    <link rel="stylesheet" href="../assets/dist/style.css">
+    <link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card card-animation">
+            <div class="utils">
+                <div class="question-label">
+                    <h2>Question <span class="from">4</span> of <span class="to">4</span></h2>
+                    <div class="background-label">
+                        <div class="color-label"></div>
+                    </div>
+                </div>
+                <div class="timer">
+                    <h2>Timer</h2>
+                    <div class="timer-container">
+                        <h2 class="timer-num">0</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <h1 class="question-text">How do you reverse an array in place in Java?</h1>
+            </div>
+            <div class="choices">
+                <div class="choices-a">
+                    <h2 class="letter">A</h2>
+                    <h2 class="answer answer-a">Hypertext Mark-up Language</h2>
+                </div>
+                <div class="choices-b">
+                    <h2 class="letter">B</h2>
+                    <h2 class="answer answer-b">How to Make Lumpia</h2>
+                </div>
+                <div class="choices-c">
+                    <h2 class="letter">C</h2>
+                    <h2 class="answer answer-c">How To Make Love</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="modal-body modal-show">
+                <h1 class="remind-text">Reminders!</h1>
+                <ul>
+                    <li>You have 30 seconds to answer each question</li>
+                    <li>Each question has corresponding correct answer</li>
+                    <li>Please do not refresh the page</li>
+                    <li>Good day! have a good result</li>
+                </ul>
+                <a class="play-btn">Start</a>
+            </div>
+        </div>
+
+        <div class="modal-loading">
+            <div class="modal-body-loading modal-show">
+                <div class="loader-container">
+                
+                </div>
+                <h1 class="remind-text" style="margin-top: 4.5rem;">Loading...</h1>
+            </div>
+        </div>
+
+        <div class="count">
+            <div class="count-body">
+                <h1 class="wait">0</h1>
+                <h2 style="text-align: center;">You will be redirecting to score page please wait</h2>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../assets/jquery/dist/jquery.min.js"></script>
+<script src="../assets/dist/quiz.js"></script>
+</html>
