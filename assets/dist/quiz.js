@@ -37,7 +37,7 @@ $(document).ready(function () {
     $('.play-btn').on('click', function () {
 
         $.ajax({
-            url: "..server.php?question=1",
+            url: "../server.php?question=1",
             // url: "https://quiz-bee-ian.herokuapp.com/index.php?question=1",
             type: "GET",
             contentType: false,
@@ -395,7 +395,7 @@ $(document).ready(function () {
         setInterval(() => {
             $('.wait').text(rederectingTime);
             if (rederectingTime == 3) {
-                window.location.href = "score.html" + window.location.search + "&result=" + (resultToExam * 10) + "&questions=" + question_stored + "&answers=" + answer_stored ;
+                window.location.href = 'score.html' + window.location.search + '&result=' + (resultToExam * 10) + '&questions=' + question_stored + '&answers=' + answer_stored.replace(/&nbsp;/g, "160") ;
             }
             rederectingTime++;
 

@@ -96,7 +96,7 @@ body {
 }
 
 /* .box-body > a:hover { */
-  /* width: 90%; */
+/* width: 90%; */
 /* } */
 
 .box-body > a.play-btn,
@@ -189,7 +189,7 @@ body {
 .question-label > .background-label {
   background-color: white;
   border: solid #16da40;
-  height: 30%;
+  height: 30px;
   width: 100%;
   border-radius: 30px;
   margin-top: 15px;
@@ -276,7 +276,8 @@ h2.answer {
   margin-left: 1rem;
 }
 
-.container > .modal, .modal-loading{
+.container > .modal,
+.modal-loading {
   height: 100vh;
   position: fixed;
   z-index: 1000;
@@ -389,16 +390,62 @@ ul > li {
   /* font-size: 32px; */
 }
 
+.result-container {
+  flex-direction: column;
+  flex-flow: column;
+  height: unset;
+  padding: 2rem 0;
+}
+
+.result-card {
+  box-shadow: 0px 0px 10px -4px rgb(0 0 0 / 50%);
+  margin: 1rem 0;
+}
+
+.box > a.back-btn {
+  margin-top: 1.5rem;
+}
 /* new added */
 
+@media screen and (max-width: 683px) {
+  .box.box-1 {
+    display: none;
+  }
+  .container > .box {
+    width: 500px;
+    padding: 0;
+  }
+}
+
 @media screen and (max-width: 540px) {
-  .container .card {
+  .container > .box {
     width: 90vw;
+    padding: 0;
+  }
+  .container.result-container > .box {
+    width: 80vw;
+    padding: 0;
+  }
+  .result-container {
+    padding: 1rem 0;
+  }
+  .result-card {
+    box-shadow: 0px 0px 10px -4px rgb(0 0 0 / 50%);
+    margin: 0.5rem 0;
+  }
+  .container.quiz-container .card {
+    width: 90%;
+  }
+  .container .card {
+    width: 100%;
+  }
+  .box > a.back-btn {
+    width: 100%;
   }
   .choices-a,
   .choices-b,
   .choices-c {
-    width: 90%;
+    width: 100%;
   }
   h1.question-text {
     font-size: 20px;
@@ -418,19 +465,33 @@ ul > li {
     text-align: center;
     line-height: 25px;
   }
+  .modal-body {
+    width: 470px;
+  }
 }
 
 @media screen and (max-width: 414px) {
+  .container > .box {
+    width: 90vw;
+    padding: 20px;
+  }
+  .box-body > h1 {
+    margin-bottom: 3rem;
+    font-size: 100px;
+  }
   .modal-body {
     width: 300px;
   }
   .container .card {
     width: 90vw;
   }
+  .container.result-container .card {
+    width: 100%;
+  }
   .choices-a,
   .choices-b,
   .choices-c {
-    width: 90%;
+    width: 100%;
   }
   h1.question-text {
     font-size: 20px;
@@ -477,5 +538,5 @@ ul > li {
 }
 
 h2 {
-  font-family: 'Spartan';
+  font-family: "Spartan";
 }
